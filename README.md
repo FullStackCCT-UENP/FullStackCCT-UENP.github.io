@@ -37,12 +37,12 @@ Atualmente o mercado está inundado de informação e cursos para desenvolviment
 - Entrega e Avaliação do Produto Final.
 
 
-
-
 **Professores**
 - Fábio Carlos Moreno
 - Thiago Adriano Coleti
 - Wellington Aparecido Della Mura
+
+
 **Alunos**
 - Bruno Cesar Batista
 
