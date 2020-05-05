@@ -45,16 +45,3 @@ Atualmente o mercado está inundado de informação e cursos para desenvolviment
 
 **Alunos**
 - Bruno Cesar Batista
-
-
-[Ficha de inscrição](https://github.com/FullStackCCT-UENP/FullStackCCT-UENP.github.io/edit/master/README.md)
-
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
