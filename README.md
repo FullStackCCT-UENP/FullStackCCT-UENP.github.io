@@ -1,4 +1,10 @@
-## Welcome to GitHub Pages
+##Curso de Extensão 5382
+# Introdução ao Desenvolvimento Web FullStack
+
+
+Atualmente a construção de websites, aplicações web e aplicativos móveis requerem uma vasta gama de conceitos, tecnologias e ferramentas. Isso se dá pelo aumento vertiginoso da adoção de dispositivos tecnológicos além da facilidade de acesso à internet. A partir dessa premissa, o desafio é criar um sistema que realmente entregue valor ao usuário, gere engajamento e modifique o meio no qual está inserido. Dessa forma, o estudo de tecnologias para a internet atuais se faz necessário para o desenvolvimento de software seguro,
+escalável e usável.
+
 
 You can use the [editor on GitHub](https://github.com/FullStackCCT-UENP/FullStackCCT-UENP.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
