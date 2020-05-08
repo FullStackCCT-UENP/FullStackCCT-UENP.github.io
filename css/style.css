@@ -1,0 +1,36 @@
+.img-logo {
+    width: 60px;
+    margin: 10px;
+}
+
+.img-detail {
+    width: 20%;
+    text-align: right;
+}
+
+p {
+    text-align: justify;
+}
+
+.card {
+    margin: 10px;
+}
+
+.spacer {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    border-top-color: #c9c9c9;
+    border-top-width: 1px;
+    border-top-style: solid;
+    width: 100%;
+}
+
+
+.subscribe {
+   
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    top: 0em;    
+    position: fixed
+  }
