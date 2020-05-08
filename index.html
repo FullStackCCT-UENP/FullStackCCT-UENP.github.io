@@ -77,7 +77,7 @@
    <div class="col-lg-4 text-center bg-light border  py-3">
     <h3>Faça agora sua inscrição</h3>
     <p>O curso é gratuito, oferece certificado de conclusão e tem vagas limitadas. Aproveite agora mesmo e garanta já a sua vaga!</p>
-    <a href="#inscricao" class="btn btn-lg btn-outline btn-success">Inscrever-se</a>
+    <button type="button"  data-toggle="modal" data-target="#subscriptionModal"  class="btn btn-lg btn-outline btn-success">Inscrever-se</button>
   </div.col>
   <!-- /.col-md-4 -->
   </div>
@@ -269,6 +269,76 @@
     </div>
   </footer>
 </div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="subscriptionModal" tabindex="-1" role="dialog" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="subscriptionModalLabel">Inscrever-se no Curso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="seumelhor@email.com">
+          </div>
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" class="form-control" id="name" placeholder="Seu nome completo">
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Data de Nascimento</label>
+            <input type="date" class="form-control" id="birthdate" placeholder="sua data de nascimento">
+          </div>
+          <div class="form-group">
+            <div>
+              <label for="city">Cidade</label>
+              <input type="text" class="form-control" id="city" placeholder="Sua cidade">
+            </div>
+            <div>
+              <label for="state">Estado</label>
+              <select class="form-control" id="state">
+                <option>PR</option>
+                <option>SP</option>    
+              </select>
+            </div>
+          <div class="form-group">
+            <label for="occupation">Eu sou</label>
+            <select class="form-control" id="occupation">
+              <option>Aluno da UENP no Centro de Ciências Tecnológicas</option>
+              <option>Aluno da UENP em Outros Centros</option>
+              <option>Servidor da UENP</option>
+              <option>Comunidade Externa</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="company">Instituição</label>
+            <input type="text" class="form-control" id="company" placeholder="Nome da Empresa/Universidade/Instituição">
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="phone" class="form-control" id="phone" placeholder="Informe telefone">
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Confirmar Inscrição</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 
