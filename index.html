@@ -64,7 +64,7 @@
 
 <!-- Heading Row -->
 <div class="row align-items-center my-5">
-  <div class="col-lg-7">
+  <div class="col">
     <h1 class="font-weight-light" id="inicio">Visão Geral</h1>
     <p>
         Atualmente a construção de websites, aplicações web e aplicativos móveis requerem uma vasta gama de conceitos, tecnologias e ferramentas. 
@@ -73,11 +73,13 @@
         Dessa forma, o estudo de tecnologias para a internet atuais se faz necessário para o desenvolvimento de software seguro, escalável e usável.
     </p>
   </div>
-  <div class="col border-"></div>
-   <div class="col-lg-4 text-center bg-light border  py-3">
-    <h3>Faça agora sua inscrição</h3>
-    <p>O curso é gratuito, oferece certificado de conclusão e tem vagas limitadas. Aproveite agora mesmo e garanta já a sua vaga!</p>
-    <button type="button"  data-toggle="modal" data-target="#subscriptionModal"  class="btn btn-lg btn-outline btn-success">Inscrever-se</button>
+   <div class="col-lg-4 bg-light border  py-3" id="dvSubscription">
+      <div class="text-center">
+      <h3>Faça agora sua inscrição</h3>
+      <p>O curso é gratuito, oferece certificado de conclusão e tem vagas limitadas. Aproveite agora mesmo e garanta já a sua vaga!</p>
+      <button type="button"  id="btnSubscriptionForm" class="btn btn-success">Inscrever-se</button>
+      <button type="button"  id="btnSubscriptionForm" class="btn btn-secondary">Verificar Inscrição</button>
+    </div>
   </div.col>
   <!-- /.col-md-4 -->
   </div>
@@ -270,81 +272,10 @@
   </footer>
 </div>
 
+<script src="js/api.js"></script>
+<script src="js/util.js"></script>
+<script src="js/subscription.js"></script>
 
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="subscriptionModal" tabindex="-1" role="dialog" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="subscriptionModalLabel">Inscrever-se no Curso</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" class="form-control" id="email" placeholder="seumelhor@email.com">
-          </div>
-          <div class="form-group">
-            <label for="name">Nome Completo</label>
-            <input type="text" class="form-control" id="name" placeholder="Seu nome completo">
-          </div>
-          <div class="form-group">
-            <label for="birthdate">Data de Nascimento</label>
-            <input type="date" class="form-control" id="birthdate" placeholder="sua data de nascimento">
-          </div>
-          <div class="form-group">
-            <div>
-              <label for="city">Cidade</label>
-              <input type="text" class="form-control" id="city" placeholder="Sua cidade">
-            </div>
-            <div>
-              <label for="state">Estado</label>
-              <select class="form-control" id="state">
-                <option>PR</option>
-                <option>SP</option>    
-              </select>
-            </div>
-          <div class="form-group">
-            <label for="occupation">Eu sou</label>
-            <select class="form-control" id="occupation">
-              <option>Aluno da UENP no Centro de Ciências Tecnológicas</option>
-              <option>Aluno da UENP em Outros Centros</option>
-              <option>Servidor da UENP</option>
-              <option>Comunidade Externa</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="company">Instituição</label>
-            <input type="text" class="form-control" id="company" placeholder="Nome da Empresa/Universidade/Instituição">
-          </div>
-          <div class="form-group">
-            <label for="phone">Telefone</label>
-            <input type="phone" class="form-control" id="phone" placeholder="Informe telefone">
-          </div>
-          
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Confirmar Inscrição</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 </html>

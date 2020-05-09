@@ -1,0 +1,101 @@
+<h3>Realizar Inscrição</h3>
+<form id="frmSubscription">
+  <div class="form-group row">
+    <div class="col">
+      <label for="email">E-mail</label>
+      <input type="email" class="form-control" id="email" placeholder="seumelhor@email.com" required>
+    </div>
+    <div class="col">
+        <label for="name">Nome Completo</label>
+        <input type="text" class="form-control" id="name" placeholder="Seu nome completo" required aria-required="Seu nome é obrigatório">
+    </div>
+    <div class="col">
+        <label for="birthdate" >Data de Nascimento</label>
+        <input type="text" class="form-control " id="birthdate" placeholder="dd/mm/aaaa" 
+          required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" 
+          aria-errormessage="Informe uma data no formato dd/mm/aaaa">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-3">
+      <label for="phone">Telefone</label>
+      <input type="phone" class="form-control" id="phone" placeholder="Informe telefone">
+    </div>
+    <div class="col-sm-6">
+      <label for="city">Cidade</label>
+      <input type="text" class="form-control" id="city" placeholder="Sua cidade" required>
+    </div>
+    <div class="col-sm-3">
+      <label for="state">Estado</label>
+      <select id="state" class="form-control" required>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AP">Amapá</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espírito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraíba</option>
+        <option value="PR">Paraná</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piauí</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondônia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="SE">Sergipe</option>
+        <option value="TO">Tocantins</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col">
+      <label for="occupation">Eu sou</label>
+      <select class="form-control" id="occupation" required>
+        <option>Aluno da UENP no Centro de Ciências Tecnológicas</option>
+        <option>Aluno da UENP em Outros Centros</option>
+        <option>Servidor da UENP</option>
+        <option>Comunidade Externa</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="company">Instituição</label>
+      <input type="text" class="form-control" id="company" placeholder="Nome da Empresa/Universidade/Instituição">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col text-center">
+      <button type="button" class="btn btn-primary" id="btnSubscriptionConfirm">Confirmar Inscrição</button>
+    </div>
+  </div>
+ 
+</form>
+
+
+<script>
+
+document.getElementById('btnSubscriptionConfirm').addEventListener('click', () => {
+    var frmSubscription = document.getElementById('frmSubscription');
+    // if (!frmSubscription.checkValidity()){
+    //   frmSubscription.reportValidity();
+    //   return;
+    // }
+    let data = getFormData(frmSubscription);
+    console.log(data);
+    
+});
+
+</script>
