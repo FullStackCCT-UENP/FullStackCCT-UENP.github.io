@@ -1,0 +1,74 @@
+<h3>Verificar Inscrição</h3>
+<form id="frmSubscription">
+  <div class="form-group row">
+    <div class="col">
+      <label for="email">E-mail</label>
+      <input type="email" class="form-control" id="email" placeholder="seumelhor@email.com" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col text-center">
+      <button type="button" class="btn btn-primary" id="btnSubscriptionConfirm">Verificar Inscrição</button>
+    </div>
+  </div>
+ 
+</form>
+
+
+<script>
+
+
+document.getElementById('btnSubscriptionConfirm').addEventListener('click', () => {
+    var frmSubscription = document.getElementById('frmSubscription');
+    if (!frmSubscription.checkValidity()){
+      frmSubscription.reportValidity();
+       return;
+    }
+    let data = getFormDataById(frmSubscription);
+    doGet(subscriptionEndPoint+"?email="+data.email,
+      (status, data)=>
+        {
+          if (status == 422) {
+            Swal.fire({
+              title: 'Os dados informados são inválidos',
+              text: 'Verifique as informações e tente novamente.',
+              icon: 'error'
+            })
+          } else if (status == 404){
+            Swal.fire({
+              title: "Cadastro não encontrado",
+              text: 'Verifique novamente seus dados',
+              icon: 'warning'
+            });            
+          } else if (status == 200){
+            
+            let res = '<h4>'+data.name+'</h4>'+
+                      '<h5 class="text-info">'+data.status+'</h5>';
+            if (data.details)
+                    res += "<hr/><p class='text-justify'>"+data.details  +"</p>";
+
+
+            Swal.fire({
+              title: "Situação da Inscrição",
+              html: res,
+              icon: "info"
+            });
+            showSubscriptionMainPanel();
+          }
+        },
+      (status, error) => 
+        {
+          Swal.fire({
+              title: "An Error Was Found.",
+              text: error,
+              icon: 'error'
+          });
+        }
+    );
+    
+
+
+});
+
+</script>

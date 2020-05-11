@@ -1,0 +1,59 @@
+"use strict";
+
+showSubscriptionMainPanel();
+
+//-----------------------------------------------------------------------------------------------
+
+function showSubscriptionForm(){
+
+    var dvSubscription = document.getElementById('dvSubscription');
+    
+    fetch('subscription.html')
+        .then(function(response) {
+            response.text().then(function(data){                
+                dvSubscription.innerHTML = data;
+                dvSubscription.classList.remove('col-lg-4');
+                dvSubscription.classList.add('col-lg-12');
+                let scripts = dvSubscription.getElementsByTagName('script');
+                for (let i = 0; i<scripts.length; i++){
+                    eval(scripts[i].text);
+                }
+            });
+        })
+        .catch(function(error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+
+}
+
+function showSubscriptionMainPanel(){
+    changePanel('subscriptionMainPanel.html');
+}
+
+function showCheckSubscriptionForm(){
+    changePanel('checkSubscription.html');
+}
+
+function changePanel(page, removeClass, addClass){
+
+    var dvSubscription = document.getElementById('dvSubscription');
+    
+    fetch(page)
+        .then(function(response) {
+            response.text().then(function(data){                
+                dvSubscription.innerHTML = data;
+                if (removeClass)
+                    dvSubscription.classList.remove(removeClass);
+                if (addClass)
+                    dvSubscription.classList.add(addClass);
+                let scripts = dvSubscription.getElementsByTagName('script');
+                for (let i = 0; i<scripts.length; i++){
+                    eval(scripts[i].text);
+                }
+            });
+        })
+        .catch(function(error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+
+}

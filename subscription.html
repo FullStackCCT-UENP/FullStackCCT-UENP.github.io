@@ -1,35 +1,32 @@
 <h3>Realizar Inscrição</h3>
 <form id="frmSubscription">
   <div class="form-group row">
-    <div class="col-sm-3">
+    <div class="col-lg-3">
       <label for="email">E-mail</label>
       <input type="email" class="form-control" id="email" placeholder="seumelhor@email.com" required>
     </div>
-    <div class="col-sm-6">
+    <div class="col-lg-6">
         <label for="name">Nome Completo</label>
         <input type="text" class="form-control" id="name" placeholder="Seu nome completo" required aria-required="Seu nome é obrigatório">
     </div>
-    <div class="col-sm-3">
+    <div class="col-lg-3">
         <label for="birthdate" >Data de Nascimento</label>
         <input type="text" class="form-control " id="birthdate" placeholder="dd/mm/aaaa" 
           required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" 
           aria-errormessage="Informe uma data no formato dd/mm/aaaa">
       </div>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <div class="col-sm-3">
-      <label for="phone">Telefone</label>
+    <div class="col-lg-3">
+      <label for="phone">Telefone (opcional)</label>
       <input type="phone" class="form-control" id="phone" placeholder="Informe telefone">
     </div>
-    <div class="col-sm-6">
+    <div class="col-lg-6">
       <label for="city">Cidade</label>
       <input type="text" class="form-control" id="city" placeholder="Sua cidade" required>
     </div>
-    <div class="col-sm-3">
+    <div class="col-lg-3">
       <label for="state">Estado</label>
       <select id="state" class="form-control" required>
+        <option value="" selected>Selecione uma opção</option>
         <option value="AC">Acre</option>
         <option value="AL">Alagoas</option>
         <option value="AP">Amapá</option>
@@ -57,13 +54,13 @@
         <option value="SP">São Paulo</option>
         <option value="SE">Sergipe</option>
         <option value="TO">Tocantins</option>
+        <option value="ZZ">Fora do Brasil</option>
       </select>
     </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-12 col-sm-6">
+    <div class="col-lg-6">
       <label for="occupation">Eu sou</label>
       <select class="form-control" id="occupation" required>
+        <option value="" selected>Selecione uma opção</option>
         <option>Aluno do CCT/UENP</option>
         <option>Aluno da UENP (Outros cursos)</option>
         <option>Servidor da UENP</option>
@@ -72,8 +69,8 @@
         <option>Comunidade Externa</option>
       </select>
     </div>
-    <div class="col-12 col-sm-6">
-      <label for="company">Instituição</label>
+    <div class="col-lg-6">
+      <label for="company">Instituição (opcional)</label>
       <input type="text" class="form-control" id="company" placeholder="Nome da Empresa/Universidade/Instituição">
     </div>
   </div>
@@ -89,15 +86,45 @@
 
 <script>
 
+
 document.getElementById('btnSubscriptionConfirm').addEventListener('click', () => {
     var frmSubscription = document.getElementById('frmSubscription');
-    // if (!frmSubscription.checkValidity()){
-    //   frmSubscription.reportValidity();
-    //   return;
-    // }
-    let data = getFormData(frmSubscription);
-    console.log(data);
+    if (!frmSubscription.checkValidity()){
+      frmSubscription.reportValidity();
+       return;
+    }
+    let data = getFormDataById(frmSubscription);
+    data.birthdate= toApiDate(data.birthdate);
+    doPost(subscriptionEndPoint, data, 
+      (status, data)=>
+        {
+          if (status == 422) {
+            Swal.fire({
+              title: 'Os dados informados são inválidos',
+              text: 'Verifique as informações e tente novamente.',
+              icon: 'error'
+            })
+          } else if (status == 200 || status==21){
+            Swal.fire({
+              title: "Cadastro realizado com sucesso",
+              text: 'Aguarde a confirmação de sua inscrição.',
+              icon: 'success'
+            });
+            showSubscriptionMainPanel();
+          }
+        },
+      (status, error) => 
+        {
+          Swal.fire({
+              title: "An Error Was Found.",
+              text: error,
+              icon: 'error'
+          });
+        }
+    );
     
+
+
 });
 
 </script>

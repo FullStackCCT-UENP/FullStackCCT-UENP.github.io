@@ -1,12 +1,15 @@
 "use strict";
 
-function getFormData(form) {
+function getFormDataById(form) {
     let elements = form.elements;
-    let obj ={};
+    let obj = {};
     for(let i = 0 ; i < elements.length ; i++){
         let item = elements.item(i);
-        obj[item.name] = item.value;
+        if (item.type == 'submit' || item.type == 'reset' || item.type == 'button')
+            continue;
+        obj[item.id] = item.value;
     }
 
     return obj;
 }
+
