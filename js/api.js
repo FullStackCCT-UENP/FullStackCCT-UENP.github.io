@@ -1,41 +1,41 @@
 "use strict";
 
-let server = "https://fullstack.della-mura.com.br/";
-let subscriptionEndPoint = server + "api/subscription";
+const server = "https://fullstack.della-mura.com.br/";
+const subscriptionEndPoint = server + "api/subscription";
 
-function doPost(url, object, fnOk, fnError){
+function doPost(url, object, fnOk, fnError) {
     fetch(url, {
         method: 'post',
+        mode: "same-origin",
         redirect: 'follow',
-        headers: new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'}),
-        body: JSON.stringify(object )
-    }).then(function(response) {
-        response.json().then(function(data){
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(object)
+    }).then(function (response) {
+        response.json().then(function (data) {
             fnOk(response.status, data);
-        }).catch(function(error) {
+        }).catch(function (error) {
             fnError(response.status, error);
         });
-    }).catch(function(error) {
+    }).catch(function (error) {
         fnError(response.status, error);
     });
 }
 
-function doGet(url, fnOk, fnError){
+function doGet(url, fnOk, fnError) {
     fetch(url, {
-        method: 'get',
+        mode: "same-origin",
         redirect: 'follow',
-        headers: new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'}),
-    }).then(function(response) {
-        response.json().then(function(data){
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+    }).then(function (response) {
+        response.json().then(function (data) {
             fnOk(response.status, data);
         });
-    }).catch(function(error) {
+    }).catch(function (error) {
         fnError(response.status, error);
     });
 }
-
 
 function toApiDate(date) {
     let d = date.split('/');
-    return (d[2]+'-'+d[1]+'-'+d[0]);
+    return `${d[2]}-${d[1]}-${d[0]}`;
 }
