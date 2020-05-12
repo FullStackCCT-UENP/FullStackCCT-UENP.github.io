@@ -20,8 +20,6 @@ function doPost(url, object, fnOk, fnError){
     });
 }
 
-
-
 function doGet(url, fnOk, fnError){
     fetch(url, {
         method: 'get',
@@ -30,22 +28,6 @@ function doGet(url, fnOk, fnError){
     }).then(function(response) {
         response.json().then(function(data){
             fnOk(response.status, data);
-        });
-    }).catch(function(error) {
-        fnError(response.status, error);
-    });
-}
-
-function doRequest(url, fnOk, fnError){
-    fetch(url, {
-        method: 'get',
-        redirect: 'follow',
-        headers: new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'}),
-    }).then(function(response) {
-        response.json().then(function(data){
-            fnOk(response.status, data);
-        }).catch(function(error) {
-            fnError(response.status, error);
         });
     }).catch(function(error) {
         fnError(response.status, error);
