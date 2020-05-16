@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/api.js"></script>
+    <script src="js/util.js"></script>
 </head>
 <body>
     <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
@@ -73,7 +76,9 @@
         Dessa forma, o estudo de tecnologias para a internet atuais se faz necessário para o desenvolvimento de software seguro, escalável e usável.
     </p>
   </div>
-   <div class="col-lg-4 bg-light border  py-3" id="dvSubscription"></div>
+   <div class="col-lg-4 bg-light border py-3" id="dvSubscription">
+      <script>showSubscriptionMainPanel();</script>
+   </div>
   <!-- /.col-md-4 -->
 </div>
 
@@ -124,115 +129,24 @@
 <div class="spacer"  id="conteudo"></div>
     
   <div class="row  align-items-center">
-     <div class="col">
-      <div class="text-right">
-        <img src="images\undraw_code_review_l1q9.svg" alt="web" class="img-fluid  float-right" >
-      </div>
-  
-      <h3 class="py-5 text-center">Conteúdo</h3>
-        
-        <ul>
-          <li><b>Pré-curso/Nivelamento:</b> Introdução à Programação Web (
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="blank">HTML</a>, 
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">CSS</a>, 
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/JAVASCRIPT" target="_blank">Javascript</a> )</li>
-          <li><b>Git e GitHub:</b> Ferramentas de gerência de versão e atualização.</li>
-          <li><b>Análise:</b> Especificação e Modelagem de Requisitos</li>
-          <li><b>Construção do Back-End com PHP:</b> Download e configuração do Laravel; PHP Orientado a Objetos; Arquitetura MVC; Construção de Controladores, Rotas e Requisições; Construção de API Rest; Migrations, Models; Autenticação OAuth2.</li>
-          <li><b>Construção do Front-End:</b> Conceitos de Interface-Humano Computador; User Experience e Arquitetura da Informação; Padrões de Design Web e Web-Responsivo; Design do website com Materialize/Bootstrap; Front-end com Javascript, fetch api, jquery, Single Page Application, Manipulação de DOM, Progressive web apps, Testes de Usabilidade.</li>
-          <li><b>Implantação e publicação:</b> Empacotamento do código, registro de domínio, contratação da hospedagem e deploy em produção na núvem .</li>
-        </ul>
+     <div class="col" id='dvConteudo'>
+      <script>load('sections/conteudo.html','dvConteudo');</script>
      </div>
     </div>
 
     <div class="spacer"></div>
 
     <div class="row  align-items-center">
-      <div class="col">
-        <h3 class="py-5 text-center" id="cronograma">Cronograma</h3>
-        
-      <ul class="py-2">
-        <li> <b>(18/05/2020)</b> <u>Módulo 1:</u> Introdução à Programação Web e Ferramentas de gerência de versão e atualização.</li>
-        <li> <b>(01/06/2020)</b> <u>Módulo 2:</u> Levantamento, Especificação e Modelagem de Requisitos.</li>
-        <li> <b>(15/06/2020)</b> <u>Módulo 3:</u> Construção do Back-End com PHP.</li>
-        <li> <b>(29/06/2020)</b> <u>Módulo 4:</u> Construção do Front-End.</li>
-        <li> <b>(13/07/2020)</b> <u>Módulo 5:</u> Implantação e publicação.</li>
-        <li> <b>(31/07/2020)</b> <u>Projeto Final:</u> Entrega e Avaliação do Produto.</li>
-      </ul>
+      <div class="col" id="dvCronograma">
+        <script async>load('sections/cronograma.html', 'dvCronograma');</script>
       </div>
     </div>
     
     <div class="spacer"></div>
 
     <div class="row  align-items-center">
-      <div class="col">
-        <h3 class="py-5 text-center" id="organizacao">Organização</h3>
-        <div class="container">
-          <div class="row">
-            <!-- Team Member 1 -->
-            <div class="col-12 col-md-4">
-              <div class="card border-0 shadow">
-                <img src="images/avatar-bruno.png" class="card-img-top" alt="Bruno Cesar Batista">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0"><a href="https://brunocbatista.github.io" target="_blank">Bruno Cesar Batista</a></h5>
-                  <div class="card-text text-black-50">Discente Sistemas de Informação/UENP</div>
-                </div>
-              </div>
-            </div>
-            <!-- Team Member 2 -->
-            <div class="col-12 col-md-4">
-              <div class="card border-0 shadow">
-                <img src="images/avatar-fabio.png" class="card-img-top" alt="Fábio Carlos Moreno">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0"><a href="https://cct.uenp.edu.br/fabiomoreno" target="_blank">Fábio Carlos Moreno</a></h5>
-                  <div class="card-text text-black-50">Docente CCT/UENP</div>
-                </div>
-              </div>
-            </div>
-            <!-- Team Member 3 -->
-            <div class="col-12 col-md-4">
-              <div class="card border-0 shadow">
-                <img src="images/avatar-morandini.png" class="card-img-top" alt="Marcelo Morandini">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0"><a href="http://lattes.cnpq.br/7235951485247158" target="_blank">Marcelo Morandini</a></h5>
-                  <div class="card-text text-black-50">Docente EACH/USP</div>
-                </div>
-              </div>
-            </div>
-            <!-- Team Member 4 -->
-            <div class="col-12 col-md-4">
-              <div class="card border-0 shadow">
-                <img src="images/avatar-ronaldo.png" class="card-img-top" alt="Ronaldo Cesar Mengato Júnior">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0"><a href="https://cct.uenp.edu.br/ronaldo" target="_blank">Ronaldo Cesar Mengato Júnior</a></h5>
-                  <div class="card-text text-black-50">Docente CCT/UENP</div>
-                </div>
-              </div>
-            </div>
-            <!-- Team Member 4 -->
-            <div class="col-12 col-md-4">
-              <div class="card border-0 shadow">
-                <img src="images/avatar-thiago.png" class="card-img-top" alt="Thiago Adriano Coleti">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0"><a href="http://lattes.cnpq.br/8368597451080752" target="_blank">Thiago Adriano Coleti</a></h5>
-                  <div class="card-text text-black-50">Docente CCT/UENP</div>
-                </div>
-              </div>
-            </div> 
-            <!-- Team Member 5 -->
-            <div class="col-12 col-md-4">
-              <div class="card border-0 shadow">
-                <img src="images/avatar-wellington.png" class="card-img-top" alt="Wellington Della Mura">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0"><a href="https://cct.uenp.edu.br/wellington" target="_blank">Wellington Della Mura</a></h5>
-                  <div class="card-text text-black-50">Docente CCT/UENP</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /.row -->
-
-        </div>
+      <div class="col" id="dvOrganizacao">
+        <script async>load('sections/organizacao.html', 'dvOrganizacao');</script>
       </div>
 
     </div>
@@ -279,8 +193,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="js/api.js"></script>
-<script src="js/util.js"></script>
+
 
 
 </body>

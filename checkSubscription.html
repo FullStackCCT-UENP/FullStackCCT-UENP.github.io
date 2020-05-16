@@ -2,7 +2,7 @@
 <form id="frmSubscription">
   <div class="form-group row">
     <div class="col">
-      <label for="email">E-mail</label>
+      
       <input type="email" class="form-control" id="email" placeholder="seumelhor@email.com" required>
     </div>
   </div>
@@ -10,6 +10,7 @@
   <div class="row">
     <div class="col text-center">
       <button type="button" class="btn btn-primary" id="btnSubscriptionConfirm">Verificar Inscrição</button>
+      <button type="button" class="btn btn-secondary" id="btnSubscriptionCancel">Voltar</button>
     </div>
   </div>
  
@@ -17,7 +18,9 @@
 
 
 <script>
-
+document.getElementById('btnSubscriptionCancel').addEventListener('click', () => {
+  showSubscriptionMainPanel();
+});
 
 document.getElementById('btnSubscriptionConfirm').addEventListener('click', () => {
     var frmSubscription = document.getElementById('frmSubscription');
@@ -44,9 +47,9 @@ document.getElementById('btnSubscriptionConfirm').addEventListener('click', () =
           } else if (status == 200){
             
             let res = '<h4>'+data.name+'</h4>'+
-                      '<h5 class="text-info">'+data.status+'</h5>';
+                      '<h5 class="text-danger">'+data.status+'</h5>';
             if (data.details)
-                    res += "<hr/><p class='text-justify'>"+data.details  +"</p>";
+                    res += "<p class='text-justify'>"+data.details  +"</p><hr/>";
 
 
             Swal.fire({

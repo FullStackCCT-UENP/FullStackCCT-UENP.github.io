@@ -1,6 +1,6 @@
 "use strict";
 
-showSubscriptionMainPanel();
+
 
 //-----------------------------------------------------------------------------------------------
 
@@ -9,7 +9,7 @@ function showSubscriptionForm(){
 }
 
 function showSubscriptionMainPanel(){
-    changePanel('subscriptionMainPanel.html');
+    changePanel('subscriptionMainPanel.html','col-lg-12','col-lg-4');
 }
 
 function showCheckSubscriptionForm(){
@@ -38,6 +38,24 @@ function changePanel(page, removeClass, addClass){
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
 
+}
+
+async function load(page, toDiv){
+    var toDiv = document.getElementById(toDiv);
+    try {
+        let fetchResult = await fetch(page);
+        let data = await fetchResult.text();
+       
+        toDiv.innerHTML = data;
+        let scripts = toDiv.getElementsByTagName('script');
+        for (const script of scripts) {                
+            eval(script.text);
+        }        
+    } catch(error) {
+        console.log('There has been a problem with your fetch operation: ' + error.message);
+        return false;
+    };
+    return true;
 }
 
 function getFormDataById(form) {
